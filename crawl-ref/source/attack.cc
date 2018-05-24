@@ -1154,13 +1154,13 @@ int attack::player_apply_weapon_skill(int damage, skill_type skill)
         damage *= 5000 + (you.skill(skill, 100));
         damage = div_rand_round(damage, 5000);
     }
-	else if (skill == SK_THROWING)
-	{
-		int skill_bonus = you.skill_rdiv(skill);
-			// stones get half the bonus
-		skill_bonus = div_rand_round(skill_bonus * min(damage, 4), 4);
-		damage += skill_bonus;
-	}
+    else if (skill == SK_THROWING)
+    {
+        int skill_bonus = you.skill_rdiv(skill);
+            // stones get half the bonus
+        skill_bonus = div_rand_round(skill_bonus * min(damage, 4), 4);
+        damage += skill_bonus;
+    }
 
     return damage;
 }
