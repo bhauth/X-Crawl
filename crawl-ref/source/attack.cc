@@ -1143,7 +1143,7 @@ int attack::player_stat_modify_damage(int damage)
 {
     int str = you.strength();
     damage *= 1000 + (str-10)*25;
-    damage /= 1000;
+    damage = div_rand_round(damage, 1000);
     return damage;
 }
 
@@ -1152,7 +1152,7 @@ int attack::player_apply_weapon_skill(int damage, skill_type skill)
     if (using_weapon())
     {
         damage *= 5000 + (you.skill(skill, 100));
-        damage /= 5000;
+        damage = div_rand_round(damage, 5000);
     }
 
     return damage;
