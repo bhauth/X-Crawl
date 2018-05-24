@@ -99,6 +99,13 @@ public:
 
     // To-hit is a function of attacker/defender, defined in sub-classes
     virtual int calc_to_hit(bool random);
+    
+    // public for weapon damage descriptions
+    virtual int  player_stat_modify_damage(int damage);
+    virtual int  player_apply_weapon_skill(int damage, skill_type skill);
+    virtual int  player_apply_fighting_skill(int damage, bool aux);
+    virtual int  player_apply_slaying_bonuses(int damage, bool aux);
+    virtual int  player_apply_final_multipliers(int damage);
 
     // Exact copies of their melee_attack predecessors
     string actor_name(const actor *a, description_level_type desc,
@@ -187,12 +194,6 @@ protected:
 
     attack_flavour random_chaos_attack_flavour();
     bool apply_poison_damage_brand();
-
-    virtual int  player_stat_modify_damage(int damage);
-    virtual int  player_apply_weapon_skill(int damage, skill_type skill);
-    virtual int  player_apply_fighting_skill(int damage, bool aux);
-    virtual int  player_apply_slaying_bonuses(int damage, bool aux);
-    virtual int  player_apply_final_multipliers(int damage);
 
     virtual void player_exercise_combat_skills();
 

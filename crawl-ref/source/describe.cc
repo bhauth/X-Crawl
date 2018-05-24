@@ -1012,25 +1012,29 @@ static void _append_weapon_stats(string &description, const item_def &item)
 {
     const int base_dam = property(item, PWPN_DAMAGE);
     const int ammo_type = fires_ammo_type(item);
-    const int ammo_dam = ammo_type == MI_NONE ? 0 :
-                                                ammo_type_damage(ammo_type);
+    const int ammo_dam = ammo_type == MI_NONE ? 0 : ammo_type_damage(ammo_type);
     const skill_type skill = _item_training_skill(item);
     const int mindelay_skill = _item_training_target(item);
 
     const bool could_set_target = _could_set_training_target(item, true);
 
+    int dmg_with_ammo = base_dam + ammo_dam;
+    int true_dmg = player_apply_weapon_skill(dmg_with_ammo, skill);
+    true_dmg = player_stat_modify_damage(true_dmg);
+    true_dmg = player_apply_fighting_skill(true_dmg, false);
+
     if (skill == SK_SLINGS)
     {
         description += make_stringf("\nFiring bullets:    Base damage: %d",
-                                    base_dam +
-                                    ammo_type_damage(MI_SLING_BULLET));
+            base_dam + ammo_type_damage(MI_SLING_BULLET));
     }
 
     description += make_stringf(
-    "\nBase accuracy: %+d  Base damage: %d  Base attack delay: %.1f"
+    "\nBase accuracy: %+d  Damage: %d  Base damage: %d  Base delay: %.1f"
     "\nThis weapon's minimum attack delay (%.1f) is reached at skill level %d.",
         property(item, PWPN_HIT),
-        base_dam + ammo_dam,
+        true_dmg,
+        dmg_with_ammo,
         (float) property(item, PWPN_SPEED) / 10,
         (float) weapon_min_delay(item, item_brand_known(item)) / 10,
         mindelay_skill / 10);
@@ -1038,7 +1042,7 @@ static void _append_weapon_stats(string &description, const item_def &item)
     if (!is_useless_item(item))
     {
         description += "\n    " + _your_skill_desc(skill,
-                    could_set_target && in_inventory(item), mindelay_skill);
+            could_set_target && in_inventory(item), mindelay_skill);
     }
 
     if (could_set_target)
