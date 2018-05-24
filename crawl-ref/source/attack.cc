@@ -1154,6 +1154,13 @@ int attack::player_apply_weapon_skill(int damage, skill_type skill)
         damage *= 5000 + (you.skill(skill, 100));
         damage = div_rand_round(damage, 5000);
     }
+	else if (skill == SK_THROWING)
+	{
+		int skill_bonus = you.skill_rdiv(skill);
+			// stones get half the bonus
+		skill_bonus = div_rand_round(skill_bonus * min(damage, 4), 4);
+		damage += skill_bonus;
+	}
 
     return damage;
 }
@@ -1296,8 +1303,8 @@ int attack::calc_damage()
         potential_damage = using_weapon() || wpn_skill == SK_THROWING
             ? weapon_damage() : calc_base_unarmed_damage();
 
-        potential_damage = player_stat_modify_damage(potential_damage);
         potential_damage = player_apply_weapon_skill(potential_damage, wpn_skill);
+        potential_damage = player_stat_modify_damage(potential_damage);
         potential_damage = player_apply_fighting_skill(potential_damage, false);
 
         damage = random2(potential_damage+1);
