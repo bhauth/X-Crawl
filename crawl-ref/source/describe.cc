@@ -21,6 +21,7 @@
 #include "areas.h"
 #include "art-enum.h"
 #include "artefact.h"
+#include "attack.h"
 #include "branch.h"
 #include "butcher.h"
 #include "cloud.h" // cloud_type_name
