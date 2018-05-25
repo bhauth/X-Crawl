@@ -1027,7 +1027,7 @@ void handle_starvation()
     }
 }
 
-/*
+
 static const int hunger_breakpoints[] = { 1, 21, 61, 121, 201, 301, 421 };
 
 int hunger_bars(const int hunger)
@@ -1035,7 +1035,7 @@ int hunger_bars(const int hunger)
     return breakpoint_rank(hunger, hunger_breakpoints,
                            ARRAYSZ(hunger_breakpoints));
 }
-*/
+
 
 string hunger_cost_string(const int hunger)
 {
