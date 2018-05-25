@@ -2067,7 +2067,15 @@ string failure_rate_to_string(int fail)
 
 string spell_hunger_string(spell_type spell)
 {
-    return hunger_cost_string(spell_hunger(spell));
+    if (you_foodless() || you.species != SP_SPRIGGAN)
+        return "N/A";
+
+    int hunger = spell_hunger(spell);
+    
+    if(player_energy() && hunger > 0)
+        return make_stringf("N/A (%d)", hunger);
+        
+    return to_string(hunger);
 }
 
 string spell_failure_rate_string(spell_type spell)

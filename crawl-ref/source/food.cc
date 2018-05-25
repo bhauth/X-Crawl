@@ -1027,6 +1027,7 @@ void handle_starvation()
     }
 }
 
+/*
 static const int hunger_breakpoints[] = { 1, 21, 61, 121, 201, 301, 421 };
 
 int hunger_bars(const int hunger)
@@ -1034,24 +1035,12 @@ int hunger_bars(const int hunger)
     return breakpoint_rank(hunger, hunger_breakpoints,
                            ARRAYSZ(hunger_breakpoints));
 }
+*/
 
 string hunger_cost_string(const int hunger)
 {
     if (you_foodless())
         return "N/A";
 
-#ifdef WIZARD
-    if (you.wizard)
-        return to_string(hunger);
-#endif
-
-    const int numbars = hunger_bars(hunger);
-
-    if (numbars > 0)
-    {
-        return string(numbars, '#')
-               + string(ARRAYSZ(hunger_breakpoints) - numbars, '.');
-    }
-    else
-        return "None";
+    return to_string(hunger);
 }
