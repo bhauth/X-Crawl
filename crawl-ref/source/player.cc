@@ -5931,7 +5931,7 @@ int player::racial_ac(bool temp) const
                        + 100 * max(0, experience_level - 7) * 2 / 5;
         }
         else if (species == SP_FAIRY)
-	        return 300 + 100 * experience_level / 3;
+            return 300 + 100 * experience_level / 3;
     }
 
     return 0;
