@@ -2338,11 +2338,11 @@ int player_shield_class()
     shield += tso_sh_boost() * 100;
     shield += you.wearing(EQ_AMULET_PLUS, AMU_REFLECTION) * 200;
     shield += you.scan_artefacts(ARTP_SHIELDING) * 200;
-	
-	// if using a long blade, add dex*skill/45 to SH
-	const item_def* weap = you.slot_item(EQ_WEAPON, false);
-	if(weap && item_attack_skill(*weap) == SK_LONG_BLADES)
-		shield += (you.dex() * you.skill(SK_LONG_BLADES, 10) * 20) / 45;
+    
+    // if using a long blade, add dex*skill/45 to SH
+    const item_def* weap = you.slot_item(EQ_WEAPON, false);
+    if(weap && item_attack_skill(*weap) == SK_LONG_BLADES)
+        shield += (you.dex() * you.skill(SK_LONG_BLADES, 10) * 20) / 45;
 
     // Fairies get bonus SH from shimmering scales
     if (you.species == SP_FAIRY)
@@ -5937,7 +5937,7 @@ int player::racial_ac(bool temp) const
                        + 100 * max(0, experience_level - 7) * 2 / 5;
         }
         else if (species == SP_FAIRY)
-	        return 300 + 100 * experience_level / 3;
+            return 300 + 100 * experience_level / 3;
     }
 
     return 0;
