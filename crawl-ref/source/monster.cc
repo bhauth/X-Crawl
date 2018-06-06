@@ -3171,7 +3171,6 @@ int monster::missile_deflection() const
 
 void monster::ablate_deflection()
 {
-    // TODO: deduplicate this code
     if (has_ench(ENCH_DEFLECT_MISSILES))
     {
         if (one_chance_in(2 + spell_hd(SPELL_DEFLECT_MISSILES)))

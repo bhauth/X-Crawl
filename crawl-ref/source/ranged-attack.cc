@@ -84,9 +84,9 @@ int ranged_attack::calc_to_hit(bool random)
     if (defl)
     {
         if (random)
-            hit = random2(hit / defl);
+            hit = random2((hit * 90) / (89 + defl));
         else
-            hit = (hit - 1) / (2 * defl);
+            hit = ((hit - 1)*90) / (2 * (89 + defl));
     }
 
     return hit;

@@ -2865,12 +2865,12 @@ static bool _test_beam_hit(int attack, int defence, bool pierce,
     if (pierce)
     {
         if (defl > 1)
-            attack = r[0].random2(attack * 2) / 3;
+            attack = r[0].random2(attack * 2 * 90) / (3 * (89 + defl));
         else if (defl && attack >= 2) // don't increase acc of 0
             attack = r[0].random_range((attack + 1) / 2 + 1, attack);
     }
     else if (defl)
-        attack = r[0].random2(attack / defl);
+        attack = r[0].random2((attack * 90) / (89 + defl));
 
     dprf(DIAG_BEAM, "Beam attack: %d, defence: %d", attack, defence);
 
@@ -4782,7 +4782,7 @@ void bolt::affect_monster(monster* mon)
             // if it would have hit otherwise...
             if (_test_beam_hit(beam_hit, rand_ev, pierce, 0, r))
             {
-                string deflects = (defl == 2) ? "deflects" : "repels";
+                string deflects = (defl > 1) ? "deflects" : "repels";
                 msg::stream << mon->name(DESC_THE) << " "
                             << deflects << " the " << name
                             << '!' << endl;

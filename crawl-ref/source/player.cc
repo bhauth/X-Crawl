@@ -5718,8 +5718,7 @@ void player::ablate_deflection()
 {
     if (attribute[ATTR_DEFLECT_MISSILES])
     {
-        const int power = calc_spell_power(SPELL_DEFLECT_MISSILES, true);
-        if (one_chance_in(2 + power / 8))
+        if (!you.has_spell(SPELL_DEFLECT_MISSILES))
         {
             attribute[ATTR_DEFLECT_MISSILES] = 0;
             mprf(MSGCH_DURATION, "You feel less protected from missiles.");
