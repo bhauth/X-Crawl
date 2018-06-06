@@ -2866,8 +2866,8 @@ static bool _test_beam_hit(int attack, int defence, bool pierce,
     {
         if (defl > 1)
         {
-            attack = r[0].random2(attack * 4 * 90)
-				/ (3 * (89 + max(defl, 31)));
+            attack = r[0].random2((attack * 4 * 90)
+				/ (3 * (89 + max(defl, 31))));
         }
         else if (defl && attack >= 2) // don't increase acc of 0
             attack = r[0].random_range((attack + 1) / 2 + 1, attack);
