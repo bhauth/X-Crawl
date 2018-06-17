@@ -216,6 +216,17 @@ static const map<job_type, job_def> job_data =
       { SK_STEALTH, 2 }, },
 } },
 
+{ JOB_SHEPHERD, {
+    "Sh", "Shepherd",
+    4, 4, 4,
+    { SP_BASE_DRACONIAN, SP_GARGOYLE, SP_DEMONSPAWN, SP_OCTOPODE, SP_HUMAN,
+      SP_FORMICID },
+    { "robe", "quarterstaff", "hunting sling", "stone q:5" },
+    WCHOICE_NONE,
+    { { SK_FIGHTING, 1 }, { SK_SLINGS, 1 }, 
+      { SK_SPELLCASTING, 6 }, { SK_INVOCATIONS, 6 }, },
+} },
+
 { JOB_SKALD, {
     "Sk", "Skald",
     3, 5, 4,

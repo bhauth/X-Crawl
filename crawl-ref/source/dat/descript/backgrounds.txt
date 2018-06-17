@@ -88,6 +88,11 @@ Rogue
 Rogues carry a blowgun with poisoned needles, as well as a small number of
 nasty curare needles.
 %%%%
+Shepherd
+
+Shepherds enter the dungeon poorly prepared, carrying only their staff and
+sling, but have hidden talents.
+%%%%
 Skald
 
 Skalds are melee fighters who can boost themselves in battle with spells from
