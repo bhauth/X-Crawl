@@ -85,6 +85,7 @@ static const vector<spell_type> spellbook_templates[] =
     SPELL_POISONOUS_VAPOURS,
     SPELL_IGNITE_POISON,
     SPELL_OLGREBS_TOXIC_RADIANCE,
+    SPELL_SUMMON_SCORPIONS,
     SPELL_VENOM_BOLT,
 },
 

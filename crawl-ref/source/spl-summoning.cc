@@ -252,6 +252,25 @@ spret_type cast_call_canine_familiar(int pow, god_type god, bool fail)
     return SPRET_SUCCESS;
 }
 
+spret_type cast_summon_scorpions(int pow, god_type god, bool fail)
+{
+    fail_check();
+    monster_type mon = MONS_SCORPION;
+
+    int power_left = pow;
+    const int dur = min(2 + (random2(pow) / 4), 4);
+
+    while(power_left > 0)
+        {
+        if (!create_monster(_pal_data(mon, dur, god, SPELL_SUMMON_SCORPIONS)))
+            canned_msg(MSG_NOTHING_HAPPENS);
+        
+        power_left -= 25 + random2(6);
+        }
+
+    return SPRET_SUCCESS;
+}
+
 spret_type cast_summon_ice_beast(int pow, god_type god, bool fail)
 {
     fail_check();
@@ -3271,6 +3290,7 @@ static const map<spell_type, summon_cap> summonsdata =
     { SPELL_SUMMON_ICE_BEAST,           { 3, 3 } },
     { SPELL_SUMMON_HYDRA,               { 3, 2 } },
     { SPELL_SUMMON_MANA_VIPER,          { 2, 2 } },
+    { SPELL_SUMMON_SCORPIONS,           { 1, 2 } },
     // Demons
     { SPELL_CALL_IMP,                   { 3, 3 } },
     { SPELL_SUMMON_DEMON,               { 3, 2 } },
