@@ -1445,6 +1445,10 @@ Summon Scarabs spell
 
 Calls forth a swarm of death scarabs.
 %%%%
+Summon Scorpions spell
+
+Summons one or more scorpions, with more being summoned at high power.
+%%%%
 Summon Small Mammal spell
 
 Summons a small mammal to the caster's aid.
