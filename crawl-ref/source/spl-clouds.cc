@@ -141,7 +141,7 @@ spret_type cast_poisonous_vapours(int pow, const dist &beam, bool fail)
 
     fail_check();
 
-    int cloud_duration = div_rand_round(5*pow + 20, 100); // in deca-auts
+    int cloud_duration = div_rand_round(6*pow + 40, 100); // in deca-auts
     cloud_duration = max(1, cloud_duration);
     if (cloud)
     {

@@ -272,7 +272,7 @@ spret_type cast_summon_scorpions(actor* caster, int pow, god_type god, bool fail
         if (monster* beast = create_monster(mdata))
         {
             if (you.can_see(*beast))
-                seen++;
+                seen_count++;
 
             // link scorpions for summon cap
             if (mid == -1)
