@@ -256,9 +256,9 @@ spret_type cast_summon_scorpions(actor* caster, int pow, god_type god, bool fail
 {
     fail_check();
     monster_type mon = MONS_SCORPION;
-	
+    
     mgen_data mdata = _summon_data(*caster, mon, 4, god,
-		SPELL_SUMMON_SCORPIONS);
+        SPELL_SUMMON_SCORPIONS);
     mdata.flags |= MG_DONT_CAP;
 
     int power_left = pow;
@@ -275,9 +275,9 @@ spret_type cast_summon_scorpions(actor* caster, int pow, god_type god, bool fail
                 seen++;
 
             // link scorpions for summon cap
-			if (mid == -1)
-				mid = beast->mid;
-			beast->props["summon_id"].get_int() = mid;
+            if (mid == -1)
+                mid = beast->mid;
+            beast->props["summon_id"].get_int() = mid;
 
             // Handle cap only for the first of the batch being summoned
             if (first)
@@ -288,14 +288,14 @@ spret_type cast_summon_scorpions(actor* caster, int pow, god_type god, bool fail
         
         power_left -= 25 + random2(6);
         }
-	
-	if(seen_count)
-		{
-		if(seen_count > 1)
-			mpr("Scorpions appear around you.");
-		else
-			mpr("A scorpion appears.");
-		}
+    
+    if(seen_count)
+        {
+        if(seen_count > 1)
+            mpr("Scorpions appear around you.");
+        else
+            mpr("A scorpion appears.");
+        }
 
     return SPRET_SUCCESS;
 }
