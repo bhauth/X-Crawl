@@ -1701,7 +1701,7 @@ static spret_type _do_cast(spell_type spell, int powc, const dist& spd,
         return cast_call_canine_familiar(powc, god, fail);
 
     case SPELL_SUMMON_SCORPIONS:
-        return cast_summon_scorpions(powc, god, fail);
+        return cast_summon_scorpions(&you, powc, god, fail);
 
     case SPELL_SUMMON_ICE_BEAST:
         return cast_summon_ice_beast(powc, god, fail);

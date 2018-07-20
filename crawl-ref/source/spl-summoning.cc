@@ -252,21 +252,50 @@ spret_type cast_call_canine_familiar(int pow, god_type god, bool fail)
     return SPRET_SUCCESS;
 }
 
-spret_type cast_summon_scorpions(int pow, god_type god, bool fail)
+spret_type cast_summon_scorpions(actor* caster, int pow, god_type god, bool fail)
 {
     fail_check();
     monster_type mon = MONS_SCORPION;
+	
+    mgen_data mdata = _summon_data(*caster, mon, 4, god,
+		SPELL_SUMMON_SCORPIONS);
+    mdata.flags |= MG_DONT_CAP;
 
     int power_left = pow;
-    const int dur = min(2 + (random2(pow) / 4), 4);
+
+    int seen_count = 0;
+    bool first = true;
+    int mid = -1;
 
     while(power_left > 0)
         {
-        if (!create_monster(_pal_data(mon, dur, god, SPELL_SUMMON_SCORPIONS)))
-            canned_msg(MSG_NOTHING_HAPPENS);
+        if (monster* beast = create_monster(mdata))
+        {
+            if (you.can_see(*beast))
+                seen++;
+
+            // link scorpions for summon cap
+			if (mid == -1)
+				mid = beast->mid;
+			beast->props["summon_id"].get_int() = mid;
+
+            // Handle cap only for the first of the batch being summoned
+            if (first)
+                summoned_monster(beast, &you, SPELL_SUMMON_SCORPIONS);
+
+            first = false;
+        }
         
         power_left -= 25 + random2(6);
         }
+	
+	if(seen_count)
+		{
+		if(seen_count > 1)
+			mpr("Scorpions appear around you.");
+		else
+			mpr("A scorpion appears.");
+		}
 
     return SPRET_SUCCESS;
 }
@@ -3351,7 +3380,8 @@ int summons_limit(spell_type spell)
 static bool _spell_has_variable_cap(spell_type spell)
 {
     return spell == SPELL_SHADOW_CREATURES
-           || spell == SPELL_MONSTROUS_MENAGERIE;
+           || spell == SPELL_MONSTROUS_MENAGERIE
+           || spell == SPELL_SUMMON_SCORPIONS;
 }
 
 static void _expire_capped_summon(monster* mon, int delay, bool recurse)
