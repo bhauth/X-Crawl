@@ -946,15 +946,16 @@ static species_group species_groups[] =
         coord_def(0, 0),
         20,
         {
-            SP_HILL_ORC,
             SP_MINOTAUR,
+            SP_HILL_ORC,
             SP_MERFOLK,
             SP_GARGOYLE,
-            SP_BASE_DRACONIAN,
+            SP_GNOLL,
             SP_KOBOLD,
             SP_TROLL,
             SP_GHOUL,
             SP_FAIRY,
+            SP_DUSK_WALKER,
         }
     },
     {
@@ -963,16 +964,15 @@ static species_group species_groups[] =
         20,
         {
             SP_HUMAN,
+            SP_BASE_DRACONIAN,
             SP_DEMONSPAWN,
             SP_CENTAUR,
             SP_SAND_DWARF,
             SP_SPRIGGAN,
-            SP_TENGU,
+            SP_VINE_STALKER,
             SP_DEEP_ELF,
             SP_OGRE,
             SP_DEEP_DWARF,
-            SP_DUSK_WALKER,
-            SP_GNOLL,
         }
     },
     {
@@ -980,7 +980,7 @@ static species_group species_groups[] =
         coord_def(50, 0),
         20,
         {
-            SP_VINE_STALKER,
+            SP_TENGU,
             SP_VAMPIRE,
             SP_DEMIGOD,
             SP_FORMICID,
