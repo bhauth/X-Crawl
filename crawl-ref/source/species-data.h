@@ -435,8 +435,8 @@ static const map<species_type, species_def> species_data =
     { "Your body is rotting away.",
       "You thrive on raw meat." },
     { "rotting body" },
-    { JOB_WARPER, JOB_GLADIATOR, JOB_MONK, JOB_NECROMANCER,
-      JOB_ICE_ELEMENTALIST, JOB_EARTH_ELEMENTALIST },
+    { JOB_FIGHTER, JOB_GLADIATOR, JOB_MONK, JOB_ABYSSAL_KNIGHT,
+      JOB_NECROMANCER },
     { SK_UNARMED_COMBAT, SK_BOWS, SK_CROSSBOWS, SK_SLINGS },
 } },
 
