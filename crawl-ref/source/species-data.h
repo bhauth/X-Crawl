@@ -659,8 +659,7 @@ static const map<species_type, species_def> species_data =
       { MUT_SHAGGY_FUR, 1, 1 }, },
     {},
     {},
-    { JOB_FIGHTER, JOB_MONK, JOB_HUNTER, JOB_BERSERKER, JOB_WARPER,
-      JOB_EARTH_ELEMENTALIST, JOB_WIZARD },
+    { JOB_FIGHTER, JOB_MONK, JOB_HUNTER, JOB_BERSERKER, JOB_WARPER },
     { SK_UNARMED_COMBAT, SK_MACES_FLAILS },
 } },
 
