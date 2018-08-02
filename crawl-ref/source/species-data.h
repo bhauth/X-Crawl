@@ -601,7 +601,7 @@ static const map<species_type, species_def> species_data =
     { "You cannot wear most types of armour.",
       "You are very stealthy in the water. (Stealth+)" },
     { "almost no armour", "stealthy swim" },
-    { JOB_TRANSMUTER, JOB_WIZARD, JOB_CONJURER, JOB_ASSASSIN,
+    { JOB_FIGHTER, JOB_TRANSMUTER, JOB_WIZARD, JOB_ASSASSIN,
       JOB_FIRE_ELEMENTALIST, JOB_ICE_ELEMENTALIST, JOB_EARTH_ELEMENTALIST,
       JOB_VENOM_MAGE },
     { SK_MACES_FLAILS, SK_AXES, SK_POLEARMS, SK_LONG_BLADES, SK_STAVES,
