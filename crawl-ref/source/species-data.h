@@ -413,7 +413,7 @@ static const map<species_type, species_def> species_data =
       { MUT_UNBREATHING, 1, 1 }, { MUT_BIG_WINGS, 1, 14 }, },
     { "You are resistant to torment." },
     {},
-    { JOB_FIGHTER, JOB_GLADIATOR, JOB_MONK, JOB_BERSERKER,
+    { JOB_FIGHTER, JOB_GLADIATOR, JOB_MONK, JOB_BERSERKER, JOB_CONJURER,
       JOB_FIRE_ELEMENTALIST, JOB_ICE_ELEMENTALIST, JOB_EARTH_ELEMENTALIST,
       JOB_VENOM_MAGE },
     { SK_MACES_FLAILS, SK_STAVES, SK_BOWS, SK_CROSSBOWS },
