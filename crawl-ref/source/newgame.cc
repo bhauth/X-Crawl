@@ -1058,9 +1058,9 @@ static species_group species_groups[] =
         {
             SP_HUMAN,
             SP_DEMONSPAWN,
+            SP_VINE_STALKER,
             SP_CENTAUR,
             SP_SPRIGGAN,
-            SP_TENGU,
             SP_DEEP_ELF,
             SP_BASE_DRACONIAN,
             SP_OGRE,
@@ -1074,7 +1074,7 @@ static species_group species_groups[] =
         20,
         {
             SP_ONI,
-            SP_VINE_STALKER,
+            SP_TENGU,
             SP_VAMPIRE,
             SP_FORMICID,
             SP_NAGA,
