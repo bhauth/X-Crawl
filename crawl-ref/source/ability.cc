@@ -1988,7 +1988,7 @@ static spret_type _do_ability(const ability_def& abil, bool fail)
 
     case ABIL_FLY:
         fail_check();
-        // FD, high level Te, or Dr/Gr wings
+        // FD, Te, or Dr/Gr wings
         if (you.racial_permanent_flight())
         {
             you.attribute[ATTR_PERM_FLIGHT] = 1;
@@ -3307,7 +3307,6 @@ vector<talent> your_talents(bool check_confused, bool include_unusable)
         || you.racial_permanent_flight() && !you.attribute[ATTR_PERM_FLIGHT])
     {
         // Tengu can fly, but only from the ground
-        // (until level 14, when it becomes permanent until revoked).
         // Black draconians and gargoyles get permaflight at XL 14, but they
         // don't get the tengu movement/evasion bonuses and they don't get
         // temporary flight before then.

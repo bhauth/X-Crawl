@@ -1955,8 +1955,7 @@ int player_movement_speed()
     else if (player_under_penance(GOD_CHEIBRIADOS))
         mv += 2 + min(div_rand_round(you.piety_max[GOD_CHEIBRIADOS], 20), 8);
 
-    // Tengu can move slightly faster when flying.
-    if (you.tengu_flight())
+    if (you.tengu_flight() && you.get_mutation_level(MUT_TENGU_FLIGHT) > 2)
         mv--;
 
     if (you.duration[DUR_FROZEN])
@@ -2168,8 +2167,8 @@ static int _player_scale_evasion(int prescaled_ev, const int scale)
         return prescaled_ev + ev_bonus;
     }
 
-    // Flying Tengu get a 20% evasion bonus.
-    if (you.tengu_flight())
+    // Flying Tengu get a 20% evasion bonus after level 5.
+    if (you.tengu_flight() && you.get_mutation_level(MUT_TENGU_FLIGHT) > 1)
     {
         const int ev_bonus = max(1 * scale, prescaled_ev / 5);
         return prescaled_ev + ev_bonus;
@@ -6581,7 +6580,7 @@ bool player::permanent_flight() const
 
 bool player::racial_permanent_flight() const
 {
-    return get_mutation_level(MUT_TENGU_FLIGHT) >= 2
+    return get_mutation_level(MUT_TENGU_FLIGHT)
         || get_mutation_level(MUT_BIG_WINGS)
         || get_mutation_level(MUT_FAIRY_FLIGHT);
 }
