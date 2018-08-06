@@ -1994,7 +1994,7 @@ static spret_type _do_ability(const ability_def& abil, bool fail)
             you.attribute[ATTR_PERM_FLIGHT] = 1;
             float_player();
         }
-        // low level Te
+        // currently unused
         else
         {
             int power = you.experience_level * 4;
