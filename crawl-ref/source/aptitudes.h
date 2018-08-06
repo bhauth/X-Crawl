@@ -1134,12 +1134,12 @@ static const species_skill_aptitude species_skill_aptitudes[] =
 
     // SP_TENGU
     APT(SP_TENGU,           SK_FIGHTING,        0),
-    APT(SP_TENGU,           SK_SHORT_BLADES,    1),
-    APT(SP_TENGU,           SK_LONG_BLADES,     1),
-    APT(SP_TENGU,           SK_AXES,            1),
-    APT(SP_TENGU,           SK_MACES_FLAILS,    1),
-    APT(SP_TENGU,           SK_POLEARMS,        1),
-    APT(SP_TENGU,           SK_STAVES,          1),
+    APT(SP_TENGU,           SK_SHORT_BLADES,    2),
+    APT(SP_TENGU,           SK_LONG_BLADES,     2),
+    APT(SP_TENGU,           SK_AXES,            2),
+    APT(SP_TENGU,           SK_MACES_FLAILS,    2),
+    APT(SP_TENGU,           SK_POLEARMS,        2),
+    APT(SP_TENGU,           SK_STAVES,          2),
     APT(SP_TENGU,           SK_SLINGS,          0),
     APT(SP_TENGU,           SK_BOWS,            1),
     APT(SP_TENGU,           SK_CROSSBOWS,       1),
